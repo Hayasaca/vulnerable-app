@@ -21,7 +21,7 @@ pipeline {
         stage('Pull ZAP Docker Image') {
             steps {
                 script {
-                    sh "sleep 9s"
+                    sh "sleep 15s"
                     sh "curl -X POST http://192.168.23.156:6060/register -d \"email=Long\" -d \"password=Long\" -d \"fullName=Long\" "
                     // Pull the ZAP Docker image
                     sh "sudo docker pull ${ZAP_DOCKER_IMAGE}"
