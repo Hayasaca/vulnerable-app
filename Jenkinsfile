@@ -35,8 +35,8 @@ pipeline {
                     try{
                     // Run the ZAP full scan in Docker, using the context file from /home/kali/Desktop
                         sh '''
-                        sudo docker run -v /home/kali/Desktop:/zap/wrk/:rw -t ${ZAP_DOCKER_IMAGE} \
-                        zap-full-scan.py -t ${TARGET_URL} -r authen_report.html
+                        sudo docker run -v $(pwd):/zap/wrk/:rw -t ${ZAP_DOCKER_IMAGE} \
+                        zap-full-scan.py -t ${TARGET_URL} -r ${REPORT_FILE}
                         '''
                         
                     }
