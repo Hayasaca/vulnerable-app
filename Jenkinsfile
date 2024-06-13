@@ -67,14 +67,14 @@ pipeline {
 
     post {
         success {
-            emailtext body: "Build ${currentBuild.fullDisplayName} succeeded",
+            emailext body: "Build ${currentBuild.fullDisplayName} succeeded",
             subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Successful",
 	    attachmentsPattern: "${REPORT_FILE}",
             to: '21520090@gm.uit.edu.vn',
 	    attachLog: true
 	}
 	failure {
-            emailtext body: "Build ${currentBuild.fullDisplayName} failed",
+            emailext body: "Build ${currentBuild.fullDisplayName} failed",
             subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Failed",
             to: '21520090@gm.uit.edu.vn',
             attachLog: true
