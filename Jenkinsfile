@@ -68,14 +68,14 @@ pipeline {
     post {
         success {
             emailtext body: "Build ${currentBuild.fullDisplayName} succeeded",
-            subjectL "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Successful",
+            subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Successful",
 	    attachmentsPattern: "${REPORT_FILE}",
             to: '21520090@gm.uit.edu.vn',
 	    attachLog: true
 	}
 	failure {
             emailtext body: "Build ${currentBuild.fullDisplayName} failed",
-            subjectL "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Failed",
+            subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Failed",
             to: '21520090@gm.uit.edu.vn',
             attachLog: true
         }
