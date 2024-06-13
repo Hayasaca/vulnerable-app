@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         ZAP_DOCKER_IMAGE = 'ictu/zap2docker-weekly'
-        TARGET_URL = 'http://192.168.23.135:6060/login'
+        TARGET_URL = 'http://192.168.23.156:6060/login'
         CONTEXT_FILE = 'Dast_Auth.context'
         AUTH_SCRIPT = 'Long'
         REPORT_FILE = 'Authedreport.html'
