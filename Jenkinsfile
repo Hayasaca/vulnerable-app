@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     sh "sleep 30s"
-                    sh "curl -X POST http://192.168.23.135:6060/register -d \"email=Long\" -d \"password=Long\" -d \"fullName=Long\" "
+                    sh "curl -X POST http://192.168.23.156:6060/register -d \"email=Long\" -d \"password=Long\" -d \"fullName=Long\" "
                     // Pull the ZAP Docker image
                     sh "sudo docker pull ${ZAP_DOCKER_IMAGE}"
                 }
