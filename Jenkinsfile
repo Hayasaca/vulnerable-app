@@ -21,7 +21,7 @@ pipeline {
         stage('Pull ZAP Docker Image') {
             steps {
                 script {
-                    sh "sleep 30s"
+                    sh "sleep 10s"
                     sh "curl -X POST http://192.168.23.156:6060/register -d \"email=Long\" -d \"password=Long\" -d \"fullName=Long\" "
                     // Pull the ZAP Docker image
                     sh "sudo docker pull ${ZAP_DOCKER_IMAGE}"
@@ -63,6 +63,22 @@ pipeline {
         //        }
         //    }
         //}
+    }
+
+    post {
+        success {
+            emailtext body: "Build ${currentBuild.fullDisplayName} succeeded",
+            subjectL "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Successful",
+	    attachmentsPattern: "${REPORT_FILE}",
+            to: '21520090@gm.uit.edu.vn',
+	    attachLog: true
+	}
+	failure {
+            emailtext body: "Build ${currentBuild.fullDisplayName} failed",
+            subjectL "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Failed",
+            to: '21520090@gm.uit.edu.vn',
+            attachLog: true
+        }
     }
 
     //post {
