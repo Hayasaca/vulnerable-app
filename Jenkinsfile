@@ -14,7 +14,7 @@ pipeline {
         stage('Build Jobs'){
             steps{
                 script{
-                    sh "java -jar vulnapp-0.0.1-SNAPSHOT.jar --server.port=6060 &"                
+                    sh "java -javaagent:./contrast-agent.jar -Dcontrast.config.path=contrast_security.yaml -jar vulnapp-0.0.1-SNAPSHOT.jar --server.port=6060 &"                
                 }
             }
         }
